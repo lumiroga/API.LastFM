@@ -1,4 +1,5 @@
 import requests
+import json
 
 API_KEY = 'c4a34ba57da22b2fe7b7dc54d7768571'
 USER_AGENT = 'Lumiroga/LastFM'
@@ -15,8 +16,13 @@ def lastfm_get(payload):
     response = requests.get(url, headers=headers, params=payload)
     return response
 
+def jprint(obj):
+    # create a formatted string of the Python JSON object
+    text = json.dumps(obj, sort_keys=True, indent=4)
+    print(text)
+
 r = lastfm_get({
     'method': 'chart.gettopartists'
 })
 
-print(r.status_code)
+jprint(r.json())
