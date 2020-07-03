@@ -18,6 +18,7 @@ def lastfm_get(payload):
 
 def jprint(obj):
     # create a formatted string of the Python JSON object
+    # Format
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
